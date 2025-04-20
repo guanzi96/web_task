@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Business Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --neutral-colors-white: #ffffff;
+            --neutral-colors-black: #1a1a1a;
+            --neutral-colors-gray: #666666;
+            --neutral-colors-light: #f5f5f5;
+            --section-padding: 110px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, sans-serif;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px var(--section-padding);
+            background: var(--neutral-colors-white);
+        }
+
+        .nav-system {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .logo-images {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 33px;
+            list-style: none;
+            margin: 0 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--neutral-colors-black);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-width: 160px;
+            padding: 10px;
+            border-radius: 6px;
+            z-index: 10;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: var(--neutral-colors-light);
+            border-radius: 50px;
+            padding: 10px 20px;
+            width: 419px;
+            transition: box-shadow 0.3s;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-left: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 18px 36px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        /* responsive design */
+        @media (max-width: 1200px) {
+            :root { --section-padding: 60px; }
+            .nav-system { gap: 25px; }
+            .search-container { width: 300px; }
+            .nav-menu { gap: 25px; }
+        }
+
+        @media (max-width: 1024px) {
+            .main-header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px var(--section-padding);
+            }
+            .nav-system {
+                width: 100%;
+                flex-direction: column;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 1rem 0;
+            }
+            .search-container {
+                width: 100%;
+                max-width: 500px;
+                order: 3;
+            }
+            .btn-group {
+                order: 2;
+                margin: 1rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root { --section-padding: 30px; }
+            .nav-menu { gap: 20px; }
+        }
+
+        /* status */
+        .nav-item:hover .dropdown-content { display: block; }
+        .nav-link:hover { opacity: 0.8; }
+        .search-container:focus-within {
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header bg-white shadow-sm py-4 px-6">
+        <div class="nav-system flex items-center justify-between gap-8">
+            <div class="logo-images flex items-center gap-4">
+                <img src="Group-5.png" class="w-10 h-20 object-contain" alt="Company Logo 1">
+                <img src="Group-186.png" class="w-20 h-20 object-contain" alt="Company Logo 2">
+            </div>
+
+            <nav class="flex-1">
+                <ul class="nav-menu flex justify-center gap-6">
+                    <li class="nav-item relative">
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item relative">
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item relative">
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 flex items-center gap-1">
+                            Resources <span class="text-sm">▼</span>
+                        </a>
+                        <div class="dropdown-content">
+                            <p class="text-gray-600 p-2 hover:bg-gray-50 rounded">Documentation</p>
+                            <p class="text-gray-600 p-2 hover:bg-gray-50 rounded">Tutorials</p>
+                        </div>
+                    </li>
+                    <li class="nav-item relative">
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="search-container flex items-center bg-gray-100 rounded-full px-4 py-2 w-64">
+                <svg class="w-5 h-5 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+                <input type="text" 
+                       class="ml-2 bg-transparent focus:outline-none w-full placeholder-gray-500"
+                       placeholder="Search for...">
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-outline">Login</button>
+            <button class="btn bg-black text-white hover:bg-gray-800">Get Started</button>
+        </div>
+    </header>
+
+    <section class="bg-gray-600">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-row items-start gap-6 py-12">  
+                <div class="flex-1 max-w-2xl text-left pr-12">  
+                    <h1 class="text-4xl font-bold text-white mb-6 leading-tight">
+                        A dedicated team to grow your company
+                    </h1>
+                    <p class="text-gray-200 mb-8 text-lg">
+                        Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.
+                    </p>
+                    <div class="flex flex-row justify-start gap-3"> 
+                        <button class="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800">
+                            Get started
+                        </button>
+                        <button class="border border-white text-white px-6 py-3 rounded-full hover:bg-white/10">
+                            Talk to sales
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="flex-1 max-w-md mt-4 -mr-12">  
+                    <img 
+                        src="Image_icon1.png" 
+                        alt="Team collaboration"
+                        class="w-1/4 rounded-lg shadow-xl"  
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white w-full border-t">
+        <div class="max-w-7xl mx-auto py-16 px-4">
+            <div class="flex flex-col items-center">
+                <h2 class="text-3xl font-bold text-center mb-4">
+                    Subscribe to our newsletter
+                </h2>
+                <div class="flex flex-col md:flex-row gap-4 w-full max-w-xl mb-12">
+                    <div class="flex-1 bg-gray-100 rounded-full p-2">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email"
+                            class="w-full bg-transparent px-6 py-3 focus:outline-none"
+                        >
+                    </div>
+                    <button class="bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 md:w-auto w-full">
+                        Subscribe
+                    </button>
+                </div>
+
+                <div class="flex gap-4 mb-16">
+                    <button class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <i data-lucide="facebook" class="text-gray-600"></i>
+                    </button>
+                    <button class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <i data-lucide="twitter" class="text-gray-600"></i>
+                    </button>
+                    <button class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <i data-lucide="instagram" class="text-gray-600"></i>
+                    </button>
+                    <button class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <i data-lucide="linkedin" class="text-gray-600"></i>
+                    </button>
+                    <button class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <i data-lucide="youtube" class="text-gray-600"></i>
+                    </button>
+                </div>
+
+                <div class="w-full pt-8 border-t text-center">
+                    <p class="text-gray-600">
+                        Copyright © 2023 BRIX Templates | All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.querySelectorAll('.nav-item').forEach(item => {
+            const dropdown = item.querySelector('.dropdown-content');
+            if (!dropdown) return;
+            item.addEventListener('mouseenter', () => dropdown.style.display = 'block');
+            item.addEventListener('mouseleave', () => dropdown.style.display = 'none');
+        });
+    </script>
+</body>
+</html>
