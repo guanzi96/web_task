@@ -1,0 +1,16 @@
+{
+    "name": "dreamboard",
+    "version": "1.0.0",
+    "source": "./src/index.html",
+    "scripts": {
+      "dev": "parcel",
+      "build": "parcel build --public-url ./",
+      "deploy": "rm -rf dist && npm run build && gh-pages -d dist"
+    },
+    "homepage": "https://guanzi96.github.io/web_task",
+    "devDependencies": {
+      "@parcel/resolver-glob": "^2.12.0",
+      "gh-pages": "^6.1.1",
+      "parcel": "^2.12.0"
+    }
+  }
